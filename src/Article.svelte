@@ -50,7 +50,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 811px;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .article-text h2,
