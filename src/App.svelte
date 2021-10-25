@@ -1,7 +1,9 @@
 <script>
   // Import article svelte component
   import Article from "./Article.svelte";
+  import Date from "./Date.svelte";
   import { BarLoader } from "svelte-loading-spinners";
+
 
   let articles = null;
   let articlesDates;
@@ -38,9 +40,9 @@
 
   <section>
     {#if articles !== null}
-      {#each articlesDates as Date}
-        <h2>{Date}</h2>
-        {#each articles.filter(article => article.date == Date) as article}
+      {#each articlesDates as date}
+        <Date {date} />
+        {#each articles.filter(article => article.date == date) as article}
         <Article {article} />
         {/each}
       {/each}
@@ -65,12 +67,6 @@
     font-size: 24px;
   }
 
-  h2 {
-    font-family: "Lora", serif;
-    font-size: 1.2rem;
-    margin: 2rem auto;
-    max-width: 90vw;
-  }
 
   .loading-container {
     display: flex;
