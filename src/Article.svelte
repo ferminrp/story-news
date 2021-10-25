@@ -22,7 +22,7 @@
     color: black;
     max-width: 90vw;
     margin: 50px auto;
-    gap: 20px;
+    gap: 10px;
     font-family: 'Inter', sans-serif;
   }
 
