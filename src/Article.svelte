@@ -70,5 +70,9 @@
     font-size: 16px;
     line-height: 1;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
   
 </style>
