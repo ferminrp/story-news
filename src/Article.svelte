@@ -50,7 +50,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 811px;
-    gap: 16px;
+    gap: 0.8rem;
   }
 
   .article-text h2,
@@ -60,8 +60,8 @@
 
   h2 {
     color: #3D3C3C;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 600;
     line-height: 1;
   }
 
