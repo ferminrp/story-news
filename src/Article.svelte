@@ -21,8 +21,8 @@
     display: flex;
     color: black;
     max-width: 90vw;
-    margin: 50px auto;
-    gap: 10px;
+    margin: 25px auto;
+    gap: 20px;
     font-family: 'Inter', sans-serif;
   }
 
