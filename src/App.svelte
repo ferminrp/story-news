@@ -1,31 +1,10 @@
 <script>
   // Import article svelte component
   import Article from "./Article.svelte";
+  import { BarLoader } from "svelte-loading-spinners";
 
-  let articles = [
-    {
-      id: 1,
-      title: "Google anuncia sus nuevos celulares ",
-      description: "El pixel 6 y el 6 pro ya estan a la venta por $599 y $899.",
-      thumbnail: "https://logo.clearbit.com/google.com",
-      url: "http://hatena.ne.jp/in/congue/etiam/justo/etiam.xml?lectus=erat&aliquam=volutpat&sit=in&amet=congue&diam=etiam&in=justo&magna=etiam&bibendum=pretium&imperdiet=iaculis&nullam=justo&orci=in&pede=hac&venenatis=habitasse&non=platea&sodales=dictumst&sed=etiam&tincidunt=faucibus&eu=cursus&felis=urna&fusce=ut&posuere=tellus&felis=nulla&sed=ut&lacus=erat&morbi=id&sem=mauris&mauris=vulputate&laoreet=elementum&ut=nullam&rhoncus=varius&aliquet=nulla&pulvinar=facilisi&sed=cras&nisl=non&nunc=velit&rhoncus=nec&dui=nisi&vel=vulputate&sem=nonummy&sed=maecenas&sagittis=tincidunt&nam=lacus&congue=at&risus=velit&semper=vivamus&porta=vel&volutpat=nulla&quam=eget&pede=eros&lobortis=elementum&ligula=pellentesque&sit=quisque&amet=porta&eleifend=volutpat&pede=erat&libero=quisque&quis=erat&orci=eros&nullam=viverra&molestie=eget&nibh=congue&in=eget&lectus=semper&pellentesque=rutrum&at=nulla&nulla=nunc&suspendisse=purus&potenti=phasellus&cras=in&in=felis&purus=donec&eu=semper&magna=sapien&vulputate=a",
-    },
-    {
-      id: 2,
-      title: "Google anuncia Pixel pass.",
-      description:
-        "Es una suscripcion en “bundle” o combo que le da acceso a usuarios de pixel a google one, youtube premium, youtube music premium y mas..",
-      url: "http://yolasite.com/nullam/varius.json?diam=ante&id=ipsum&ornare=primis&imperdiet=in&sapien=faucibus&urna=orci&pretium=luctus&nisl=et&ut=ultrices&volutpat=posuere&sapien=cubilia&arcu=curae&sed=donec&augue=pharetra&aliquam=magna&erat=vestibulum&volutpat=aliquet&in=ultrices&congue=erat&etiam=tortor&justo=sollicitudin&etiam=mi&pretium=sit&iaculis=amet&justo=lobortis&in=sapien&hac=sapien",
-    },
-    {
-      id: 3,
-      title: "Snapchat y Google hacen una alianza.",
-      description:
-        "En los nuevos celulares pixel, con solo tapear dos veces en la parte de atras se abre la aplicacion de snap con la camara abierta..",
-      thumbnail: "https://logo.clearbit.com/snapchat.com",
-      url: "https://free.fr/tristique/fusce.html?natoque=nec&penatibus=condimentum",
-    },
-  ];
+  let articles = null;
+  let articlesDates;
 
   // fetch json from api and store it in variable articles
 
@@ -48,6 +27,8 @@
     .then((response) => response.json())
     .then((data) => {
       articles = data;
+      // extract unique dates from articles
+      articlesDates = Object.keys(articles.reduce((r,{date}) => (r[date]='', r) , {}))
     })
     .catch((error) => console.log("error", error));
 </script>
@@ -56,9 +37,18 @@
   <h1>Tech Briefs</h1>
 
   <section>
-    {#each articles as article}
-      <Article {article} />
-    {/each}
+    {#if articles !== null}
+      {#each articlesDates as Date}
+        <h2>{Date}</h2>
+        {#each articles.filter(article => article.date == Date) as article}
+        <Article {article} />
+        {/each}
+      {/each}
+    {:else}
+      <div class="loading-container">
+        <BarLoader color="#a422e9" />
+      </div>
+    {/if}
   </section>
 </main>
 
@@ -73,5 +63,19 @@
     text-align: center;
     color: #a422e9;
     font-size: 24px;
+  }
+
+  h2 {
+    font-family: "Lora", serif;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
   }
 </style>
