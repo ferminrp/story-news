@@ -42,7 +42,7 @@
   };
 
   fetch(
-    "https://tpcxqzojgdjbrcxtrnjd.supabase.co/rest/v1/article-list?select=*&limit=30&order=date.desc",
+    "https://tpcxqzojgdjbrcxtrnjd.supabase.co/rest/v1/articles?select=*&limit=30&order=date.desc",
     requestOptions
   )
     .then((response) => response.json())
