@@ -53,7 +53,7 @@
 </script>
 
 <main>
-  <h1>Daily Story News</h1>
+  <h1>Tech Briefs</h1>
 
   <section>
     {#each articles as article}
