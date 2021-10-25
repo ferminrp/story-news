@@ -1,14 +1,20 @@
 <script>
-// Import article svelte component
-import Article from './Article.svelte';
+  // Import article svelte component
+  import Article from "./Article.svelte";
+
+  import { createClient } from "@supabase/supabase-js";
+
+  const supabaseUrl = "https://tpcxqzojgdjbrcxtrnjd.supabase.co";
+  const supabaseKey =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ";
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
   let articles = [
     {
       id: 1,
       title: "Google anuncia sus nuevos celulares ",
       description: "El pixel 6 y el 6 pro ya estan a la venta por $599 y $899.",
-      thumbnail:
-        "https://logo.clearbit.com/google.com",
+      thumbnail: "https://logo.clearbit.com/google.com",
       url: "http://hatena.ne.jp/in/congue/etiam/justo/etiam.xml?lectus=erat&aliquam=volutpat&sit=in&amet=congue&diam=etiam&in=justo&magna=etiam&bibendum=pretium&imperdiet=iaculis&nullam=justo&orci=in&pede=hac&venenatis=habitasse&non=platea&sodales=dictumst&sed=etiam&tincidunt=faucibus&eu=cursus&felis=urna&fusce=ut&posuere=tellus&felis=nulla&sed=ut&lacus=erat&morbi=id&sem=mauris&mauris=vulputate&laoreet=elementum&ut=nullam&rhoncus=varius&aliquet=nulla&pulvinar=facilisi&sed=cras&nisl=non&nunc=velit&rhoncus=nec&dui=nisi&vel=vulputate&sem=nonummy&sed=maecenas&sagittis=tincidunt&nam=lacus&congue=at&risus=velit&semper=vivamus&porta=vel&volutpat=nulla&quam=eget&pede=eros&lobortis=elementum&ligula=pellentesque&sit=quisque&amet=porta&eleifend=volutpat&pede=erat&libero=quisque&quis=erat&orci=eros&nullam=viverra&molestie=eget&nibh=congue&in=eget&lectus=semper&pellentesque=rutrum&at=nulla&nulla=nunc&suspendisse=purus&potenti=phasellus&cras=in&in=felis&purus=donec&eu=semper&magna=sapien&vulputate=a",
     },
     {
@@ -21,24 +27,49 @@ import Article from './Article.svelte';
     {
       id: 3,
       title: "Snapchat y Google hacen una alianza.",
-      description: "En los nuevos celulares pixel, con solo tapear dos veces en la parte de atras se abre la aplicacion de snap con la camara abierta..",
-      thumbnail:
-        "https://logo.clearbit.com/snapchat.com",
+      description:
+        "En los nuevos celulares pixel, con solo tapear dos veces en la parte de atras se abre la aplicacion de snap con la camara abierta..",
+      thumbnail: "https://logo.clearbit.com/snapchat.com",
       url: "https://free.fr/tristique/fusce.html?natoque=nec&penatibus=condimentum",
     },
   ];
 
 
+
+  // fetch json from api and store it in variable articles
+  
+  var myHeaders = new Headers();
+myHeaders.append("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ");
+myHeaders.append("Range", "0-1");
+
+
+let requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+let todayDate = new Date().toISOString().slice(0, 10);
+console.log(todayDate);
+
+
+fetch('https://tpcxqzojgdjbrcxtrnjd.supabase.co/rest/v1/article-list?select=*&limit=30&order=date.desc',requestOptions)
+	.then(response => response.json())
+	.then(data => {
+		articles = data;
+	})
+	.catch(error => console.log('error', error));
+
+  
 </script>
 
 <main>
   <h1>Daily Story News</h1>
 
   <section>
-	  {#each articles as article}
-	  	<Article {article} />
-
-	  {/each}
+    {#each articles as article}
+      <Article {article} />
+    {/each}
   </section>
 </main>
 
@@ -49,9 +80,9 @@ import Article from './Article.svelte';
   }
 
   h1 {
-	font-family: 'Lora', serif;
+    font-family: "Lora", serif;
     text-align: center;
-	color: #A422E9;
-	font-size: 24px;
+    color: #a422e9;
+    font-size: 24px;
   }
 </style>
