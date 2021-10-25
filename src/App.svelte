@@ -2,13 +2,6 @@
   // Import article svelte component
   import Article from "./Article.svelte";
 
-  import { createClient } from "@supabase/supabase-js";
-
-  const supabaseUrl = "https://tpcxqzojgdjbrcxtrnjd.supabase.co";
-  const supabaseKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ";
-  const supabase = createClient(supabaseUrl, supabaseKey);
-
   let articles = [
     {
       id: 1,
@@ -39,8 +32,8 @@
   // fetch json from api and store it in variable articles
   
   var myHeaders = new Headers();
-myHeaders.append("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ");
-myHeaders.append("Range", "0-1");
+	myHeaders.append("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ");
+	myHeaders.append("Range", "0-1");
 
 
 let requestOptions = {
