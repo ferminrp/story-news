@@ -21,7 +21,7 @@
     display: flex;
     color: black;
     max-width: 90vw;
-    margin: 25px auto;
+    margin: 30px auto;
     gap: 20px;
     font-family: 'Inter', sans-serif;
   }

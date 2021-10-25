@@ -27,33 +27,29 @@
     },
   ];
 
-
-
   // fetch json from api and store it in variable articles
-  
+
   var myHeaders = new Headers();
-	myHeaders.append("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ");
-	myHeaders.append("Range", "0-1");
+  myHeaders.append(
+    "apikey",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTEyNTE4NSwiZXhwIjoxOTUwNzAxMTg1fQ.jqK1A4a0PaSoZelpZ0SZ3vgDNEjK25GZGmxwjRkDftQ"
+  );
 
+  let requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
 
-let requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-let todayDate = new Date().toISOString().slice(0, 10);
-console.log(todayDate);
-
-
-fetch('https://tpcxqzojgdjbrcxtrnjd.supabase.co/rest/v1/article-list?select=*&limit=30&order=date.desc',requestOptions)
-	.then(response => response.json())
-	.then(data => {
-		articles = data;
-	})
-	.catch(error => console.log('error', error));
-
-  
+  fetch(
+    "https://tpcxqzojgdjbrcxtrnjd.supabase.co/rest/v1/article-list?select=*&limit=30&order=date.desc",
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      articles = data;
+    })
+    .catch((error) => console.log("error", error));
 </script>
 
 <main>
