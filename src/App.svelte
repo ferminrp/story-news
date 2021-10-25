@@ -13,19 +13,17 @@ import Article from './Article.svelte';
     },
     {
       id: 2,
-      title: "Pellentesque at nulla.",
+      title: "Google anuncia Pixel pass.",
       description:
-        "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
-      thumbnail:
-        "https://robohash.org/laboriosamadamet.png?size=50x50&set=set1",
+        "Es una suscripcion en “bundle” o combo que le da acceso a usuarios de pixel a google one, youtube premium, youtube music premium y mas..",
       url: "http://yolasite.com/nullam/varius.json?diam=ante&id=ipsum&ornare=primis&imperdiet=in&sapien=faucibus&urna=orci&pretium=luctus&nisl=et&ut=ultrices&volutpat=posuere&sapien=cubilia&arcu=curae&sed=donec&augue=pharetra&aliquam=magna&erat=vestibulum&volutpat=aliquet&in=ultrices&congue=erat&etiam=tortor&justo=sollicitudin&etiam=mi&pretium=sit&iaculis=amet&justo=lobortis&in=sapien&hac=sapien",
     },
     {
       id: 3,
-      title: "Duis aliquam convallis nunc.",
-      description: "Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
+      title: "Snapchat y Google hacen una alianza.",
+      description: "En los nuevos celulares pixel, con solo tapear dos veces en la parte de atras se abre la aplicacion de snap con la camara abierta..",
       thumbnail:
-        "https://robohash.org/adipisciducimusin.png?size=50x50&set=set1",
+        "https://logo.clearbit.com/snapchat.com",
       url: "https://free.fr/tristique/fusce.html?natoque=nec&penatibus=condimentum",
     },
   ];

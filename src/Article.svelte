@@ -22,12 +22,12 @@
     color: black;
     max-width: 90vw;
     margin: 50px auto;
-    gap: 10px;
+    gap: 20px;
     font-family: 'Inter', sans-serif;
   }
 
   .image-container {
-    width: 94 px;
+    min-width: 45px;
     display: flex;
     align-content: flex-start;
     justify-content: space-around;
@@ -50,7 +50,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 811px;
-    gap: 21px;
+    gap: 16px;
   }
 
   .article-text h2,
