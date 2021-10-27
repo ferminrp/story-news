@@ -59,6 +59,7 @@
     max-width: 640px;
     margin: 0 auto;
     padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   h1 {
