@@ -53,5 +53,6 @@
     font-size: 1.2rem;
     margin: 2rem auto;
     max-width: 90vw;
+    font-weight: 600px;
   }
 </style>

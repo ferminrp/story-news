@@ -58,6 +58,7 @@
   main {
     max-width: 640px;
     margin: 0 auto;
+    padding-top: 2rem;
   }
 
   h1 {
@@ -65,6 +66,7 @@
     text-align: center;
     color: #a422e9;
     font-size: 24px;
+    font-weight: 600;
   }
 
 
