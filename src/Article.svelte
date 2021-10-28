@@ -32,6 +32,7 @@
     align-content: flex-start;
     justify-content: space-around;
     align-items: flex-start;
+    
   }
 
   .image {
@@ -41,6 +42,7 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
   .article-text {
